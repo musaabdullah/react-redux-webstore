@@ -11,7 +11,7 @@ export const Card = styled.div`
   width: 260px;
   height: 330px;
   //   border: 1px solid black;
-  overfolex: hidden;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

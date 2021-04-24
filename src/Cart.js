@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  fetchData,
-  addToCart,
-  removeFromCart,
-  adjustQty,
-} from "./actions/product";
+import { removeFromCart, adjustQty } from "./actions/product";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 

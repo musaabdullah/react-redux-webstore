@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
-import { fetchData, addToCart } from "./actions/product";
+import { fetchData, addToCart, loadCurrentItem } from "./actions/product";
 import * as AI from "react-icons/ai";
 import "./App.css";
 import {
@@ -22,6 +22,7 @@ import {
 } from "./style";
 import Cart from "./Cart";
 import Shipping from "./Shipping";
+import ProductDetails from "./ProductDetails";
 function App() {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -46,7 +47,7 @@ function App() {
     setPrice(priceCount);
 
     console.log(price);
-  }, [state.carts, cart, price]);
+  }, [state.carts, cart, price, dispatch]);
   return (
     <>
       <Router>
@@ -93,7 +94,9 @@ function App() {
                       <Button onClick={() => dispatch(addToCart(item.id))}>
                         Add to cart
                       </Button>
-                      <Button>View item</Button>
+                      <Button onClick={() => dispatch(loadCurrentItem(item))}>
+                        <Link to="/productdetails">View item</Link>
+                      </Button>
                     </Body>
                   </Card>
                 );
@@ -102,6 +105,9 @@ function App() {
           </Route>
           <Route path="/shipping">
             <Shipping />
+          </Route>
+          <Route path="/productdetails">
+            <ProductDetails />
           </Route>
         </Switch>
       </Router>
