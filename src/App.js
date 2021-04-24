@@ -95,7 +95,12 @@ function App() {
                         Add to cart
                       </Button>
                       <Button onClick={() => dispatch(loadCurrentItem(item))}>
-                        <Link to="/productdetails">View item</Link>
+                        <Link
+                          style={{ color: "white", textDecoration: "none" }}
+                          to="/productdetails"
+                        >
+                          View item
+                        </Link>
                       </Button>
                     </Body>
                   </Card>
