@@ -91,6 +91,7 @@ export const Sidebar = styled.div`
   background-color: black;
   position: fixed;
   top: 0;
+  right: 0;
   //   right: -30%;
   z-index: 1;
   transition: 1s;
